@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25%;
+    background-color: #0B0B45;
+}
+
+.playergrid {
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+}
+
+.log {
+    background-color: white;
+
+}
+
+.computergrid {
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+}
+
+.box {
+    border: 1px solid black;
+    text-align: center;
+}

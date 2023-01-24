@@ -1,56 +1,77 @@
-    const ships = [];
+const ships = [];
 
-    let aircraftCarrier = {
-        name: "The Aircraft Carrier",
-        length: 5,
-        isHorizontal: false,
-        location: 1, // location is determined by the rotation - if the ship is horizontal then it is the leftmost coordinate, if it is vertical than it is the topmost point
-        hitLocations: [],
-        isSunk: false
-    };
-    ships.push(aircraftCarrier);
+let aircraftCarrier = {
+    name: "The Aircraft Carrier",
+    length: 5,
+    isHorizontal: false,
+    location: 1, // location is determined by the rotation - if the ship is horizontal then it is the leftmost coordinate, if it is vertical than it is the topmost point
+    hitLocations: [],
+    isSunk: false
+};
+ships.push(aircraftCarrier);
 
-    let battleShip = {
-        name: "The Battle Ship",
-        length: 4,
-        isHorizontal: false,
-        location: 2,
-        hitLocations: [],
-        isSunk: false
-    };
-    ships.push(battleShip);
+let battleShip = {
+    name: "The Battle Ship",
+    length: 4,
+    isHorizontal: false,
+    location: 2,
+    hitLocations: [],
+    isSunk: false
+};
+ships.push(battleShip);
 
-    let destroyer = {
-        name: "The Destroyer",
-        length: 3,
-        isHorizontal: false,
-        location: 3,
-        hitLocations: [],
-        isSunk: false
-    };
-    ships.push(destroyer);
+let destroyer = {
+    name: "The Destroyer",
+    length: 3,
+    isHorizontal: false,
+    location: 3,
+    hitLocations: [],
+    isSunk: false
+};
+ships.push(destroyer);
 
-    let submarine = {
-        name: "The Submarine",
-        length: 3,
-        isHorizontal: false,
-        location: 4,
-        hitLocations: [],
-        isSunk: false
-    };
-    ships.push(submarine);
+let submarine = {
+    name: "The Submarine",
+    length: 3,
+    isHorizontal: false,
+    location: 4,
+    hitLocations: [],
+    isSunk: false
+};
+ships.push(submarine);
 
-    let patrolBoat = {
-        name: "The Patrol Boat",
-        length: 2,
-        isHorizontal: false,
-        location: 5,
-        hitLocations: [],
-        isSunk: false
-    };
-    ships.push(patrolBoat);
+let patrolBoat = {
+    name: "The Patrol Boat",
+    length: 2,
+    isHorizontal: false,
+    location: 5,
+    hitLocations: [],
+    isSunk: false
+};
+ships.push(patrolBoat);
 
-    movePlayerShips();
+function attack(id) {
+    let rand = Math.floor(Math.random() * 2) + 1;
+
+    if (rand === 2) {
+        document.getElementById(id).style.color = "red";
+        const para = document.createElement("p");
+        const node = document.createTextNode("Target Hit!");
+        para.appendChild(node);
+
+        const element = document.getElementById("log");
+        element.appendChild(para);
+    }
+    else {
+        document.getElementById(id).style.color = "white";
+        const para = document.createElement("p");
+        const node = document.createTextNode("Target Missed!");
+        para.appendChild(node);
+
+        const element = document.getElementById("log");
+        element.appendChild(para);
+    }
+}
 
 function movePlayerShips() {
     if (!setupComplete) {
@@ -88,7 +109,6 @@ function movePlayerShips() {
                 document.getElementById(id + i).style.backgroundColor = "gray";
             }
         }
-
     }
 }
 
